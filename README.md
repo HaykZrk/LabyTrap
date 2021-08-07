@@ -1,5 +1,6 @@
-    GENERAL INFORMATION
+    FILES
 #
-      VERSI0NING
+      PICTURES
+#
+      FONTS
 
-Versioning in my git repository goes like this : 
