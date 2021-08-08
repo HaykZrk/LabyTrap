@@ -1,6 +1,0 @@
-    FILES INFORMATION
-#
-      PICTURES
-#
-      FONTS
-
