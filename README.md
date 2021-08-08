@@ -39,7 +39,9 @@ Versioning in my git repository goes like this :
         Menu Project -> Project build options -> Search directories (for debug and release) -> compiler
         (add include) -> Linker (add lib)
 
-        Menu Project -> Project build options -> Linker settings (Debug) -> add allegro-5.0.10-monolith-mt-debug -> Linker settings (Release) -> add allegro-5.0.10-monolith-mt
+        Menu Project -> Project build options -> Linker settings (Debug) -> add 
+        allegro-5.0.10-monolith-mt-debug -> Linker settings (Release) -> add 
+        allegro-5.0.10-monolith-mt
 
 - For Visual Studio :
         
