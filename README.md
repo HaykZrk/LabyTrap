@@ -10,11 +10,11 @@ Versioning in my git repository goes like this :
         INSTALLATION
 
 - For CodeBlocks : 
-        https://www.allegro.cc/files/
+        https://www.allegro.cc/files/ ->
         MinGW 4.7.0 / allegro-5.0.10-mingw-4.7.0.zip.
 
 - For Visual Studio : 
-        https://www.allegro.cc/files/
+        https://www.allegro.cc/files/ ->
         MSVC 11 / allegro-5.0.10-msvc-11.0.zip
 
         POSITIONING OF DLL
@@ -32,7 +32,7 @@ Versioning in my git repository goes like this :
         CONFIGURATION
 
 - For CodeBlocks : 
-        For debug and release : Menu Project -> Project build options -> Search directories -> compiler
+        Menu Project -> Project build options -> Search directories (for debug and release) -> compiler
         (add include) -> Linker (add lib)
 
         Menu Project -> Project build options -> Linker settings (Debug) -> add allegro-5.0.10-monolith-mt-debug -> Linker settings (Release) -> add allegro-5.0.10-monolith-mt
