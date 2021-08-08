@@ -32,6 +32,7 @@ Versioning in my git repository goes like this :
         CONFIGURATION
 
 - For CodeBlocks : 
+
         Menu Project -> Project build options -> Search directories (for debug and release) -> compiler
         (add include) -> Linker (add lib)
 
