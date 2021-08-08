@@ -17,6 +17,9 @@ Versioning in my git repository goes like this :
         https://www.allegro.cc/files/ ->
         MSVC 11 / allegro-5.0.10-msvc-11.0.zip
 
+- Easy installation : 
+        Allegro 5 available in the "files" branch for CodeBlock and Visual Studio
+
         POSITIONING OF DLL
 
 - Solution 1 : 
