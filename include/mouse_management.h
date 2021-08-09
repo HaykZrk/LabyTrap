@@ -3,10 +3,8 @@
 
 #include <allegro5/allegro.h>
 
-ALLEGRO_MOUSE_STATE mouse;
+static int *PRESS = NULL;
 
 int is_mouse_pressed (ALLEGRO_MOUSE_STATE *mouse, int btn, int repeat);
-
-
 
 #endif

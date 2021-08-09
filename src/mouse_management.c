@@ -1,8 +1,7 @@
 #include "../include/mouse_management.h"
 
-static int *PRESS = NULL;
-
 int is_mouse_pressed (ALLEGRO_MOUSE_STATE *mouse, int btn, int repeat) {
+
     int res = 0;
     int nbbtn = al_get_mouse_num_buttons();
 
