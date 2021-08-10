@@ -44,6 +44,7 @@ Versioning in my git repository goes like this :
         allegro-5.0.10-monolith-mt
 
 - For Visual Studio :
+        COMING SOON
         
 
 #
