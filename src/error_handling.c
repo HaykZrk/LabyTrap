@@ -1,6 +1,21 @@
+/**
+ * @file error_handling.c
+ * @author ZARIKIAN Hayk (haykzrk@gmail.com)
+ * @brief Test and error file.
+ * @version 0.1
+ * @date 2021-08-10
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 #include "../include/error_handling.h"
 #include "../include/game_window.h"
 
+/**
+ * @brief Display of error text.
+ * 
+ * @param[in] txt 
+ */
 void error (const char *txt) {
     ALLEGRO_DISPLAY *d;
     d = al_is_system_installed() ? al_get_current_display() : NULL;
@@ -8,37 +23,66 @@ void error (const char *txt) {
     exit(EXIT_FAILURE);
 }
 
+/**
+ * @brief Initialization test.
+ * 
+ */
 void test_init (void) {
     if (!al_init ())
         error ("allegro init");
 }
 
+/**
+ * @brief Display test.
+ * 
+ */
 void test_display (void) {
     if (!display)
         error ("display");
 }
 
+/**
+ * @brief Mouse test.
+ * 
+ */
 void test_mouse (void) {
     if (!al_install_mouse ())
         error("install mouse");
 }
 
+/**
+ * @brief Keyboard test.
+ * 
+ */
 void test_keyboard (void) {
     if (!al_install_keyboard ())
         error ("install clavier");
 }
 
+/**
+ * @brief Addon primitives test.
+ * 
+ */
 void test_primitives (void) {
     if (!al_init_primitives_addon ())
         error ("al_primitives_addon ()");
 }
 
+/**
+ * @brief Event queue test.
+ * 
+ */
 void test_queue (void) {
     if (!queue)
         error("al_create_event_queue()");
 }
 
+/**
+ * @brief Timer test.
+ * 
+ */
 void test_timer (void) {
     if (!timer)
         error ("al_create_timer()");
 }
+
