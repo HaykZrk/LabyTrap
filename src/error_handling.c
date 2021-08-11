@@ -4,17 +4,17 @@
  * @brief Test and error file.
  * @version 0.1
  * @date 2021-08-10
- * 
+ *
  * @copyright Copyright (c) 2021
- * 
+ *
  */
 #include "../include/error_handling.h"
 #include "../include/game_window.h"
 
 /**
  * @brief Display of error text.
- * 
- * @param[in] txt 
+ *
+ * @param[in] txt
  */
 void error (const char *txt) {
     ALLEGRO_DISPLAY *d;
@@ -25,7 +25,7 @@ void error (const char *txt) {
 
 /**
  * @brief Initialization test.
- * 
+ *
  */
 void test_init (void) {
     if (!al_init ())
@@ -34,7 +34,7 @@ void test_init (void) {
 
 /**
  * @brief Display test.
- * 
+ *
  */
 void test_display (void) {
     if (!display)
@@ -43,7 +43,7 @@ void test_display (void) {
 
 /**
  * @brief Mouse test.
- * 
+ *
  */
 void test_mouse (void) {
     if (!al_install_mouse ())
@@ -52,7 +52,7 @@ void test_mouse (void) {
 
 /**
  * @brief Keyboard test.
- * 
+ *
  */
 void test_keyboard (void) {
     if (!al_install_keyboard ())
@@ -61,7 +61,7 @@ void test_keyboard (void) {
 
 /**
  * @brief Addon primitives test.
- * 
+ *
  */
 void test_primitives (void) {
     if (!al_init_primitives_addon ())
@@ -70,7 +70,7 @@ void test_primitives (void) {
 
 /**
  * @brief Event queue test.
- * 
+ *
  */
 void test_queue (void) {
     if (!queue)
@@ -79,10 +79,28 @@ void test_queue (void) {
 
 /**
  * @brief Timer test.
- * 
+ *
  */
 void test_timer (void) {
     if (!timer)
         error ("al_create_timer()");
+}
+
+/**
+ * @brief Addon ttf test.
+ * 
+ */
+void test_ttf (void) {
+    if (!al_init_ttf_addon())
+        error ("al_init_ttf_addon()");
+}
+
+/**
+ * @brief Font test.
+ * 
+ */
+void test_font (void) {
+    if (!arial72)
+        error ("al_load_font()");
 }
 
