@@ -17,6 +17,8 @@
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_ttf.h>
+#include <allegro5/allegro_acodec.h>
+#include <allegro5/allegro_audio.h>
 
 #define BLACK al_map_rgb (0, 0, 0)
 #define WHITE al_map_rgb (255, 255, 255)
@@ -28,6 +30,8 @@ ALLEGRO_TIMER *timer;
 ALLEGRO_MOUSE_STATE mouse;
 ALLEGRO_KEYBOARD_STATE key;
 ALLEGRO_FONT *arial72;
+ALLEGRO_SAMPLE *MENU_Click_Song;
+ALLEGRO_SAMPLE_INSTANCE *songInstance;
 
 /**
  * @brief Main function to start the game menu.

@@ -88,7 +88,7 @@ void test_timer (void) {
 
 /**
  * @brief Addon ttf test.
- * 
+ *
  */
 void test_ttf (void) {
     if (!al_init_ttf_addon())
@@ -97,10 +97,48 @@ void test_ttf (void) {
 
 /**
  * @brief Font test.
- * 
+ *
  */
 void test_font (void) {
     if (!arial72)
         error ("al_load_font()");
+}
+
+/**
+ * @brief Audio test.
+ * 
+ */
+void test_audio (void) {
+    if (!al_install_audio ())
+        error ("al_install_audio ()");
+}
+
+/**
+ * @brief Acodec test.
+ * 
+ */
+void test_acodec (void) {
+    if (!al_init_acodec_addon ())
+        error ("al_init_acodec_addon ()");
+}
+
+/**
+ * @brief Sample song test.
+ * 
+ * @param[in] sample 
+ */
+void test_sample (ALLEGRO_SAMPLE *sample) {
+    if (!sample)
+        error ("al_load_sample ()");
+}
+
+/**
+ * @brief Sample instance song test.
+ * 
+ * @param[in] sample_instance 
+ */
+void test_sample_instance (ALLEGRO_SAMPLE_INSTANCE *sample_instance) {
+    if (!sample_instance)
+        error ("al_create_sample_instance ()");
 }
 
