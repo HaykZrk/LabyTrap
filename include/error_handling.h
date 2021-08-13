@@ -11,7 +11,7 @@
 #ifndef ERROR_HANDLING_H
 #define ERROR_HANDLING_H
 
-#include <allegro5/allegro_audio.h>
+#include "game_window.h"
 
 /**
  * @brief Display of error text.
@@ -72,31 +72,31 @@ void test_ttf (void);
  * @brief Font test.
  *
  */
-void test_font (void);
+void test_font (ALLEGRO_FONT *font);
 
 /**
  * @brief Audio test.
- * 
+ *
  */
 void test_audio (void);
 
 /**
  * @brief Acodec test.
- * 
+ *
  */
 void test_acodec (void);
 
 /**
  * @brief Sample song test.
- * 
- * @param[in] sample 
+ *
+ * @param[in] sample
  */
 void test_sample (ALLEGRO_SAMPLE *sample);
 
 /**
  * @brief Sample instance song test.
- * 
- * @param[in] sample_instance 
+ *
+ * @param[in] sample_instance
  */
 void test_sample_instance (ALLEGRO_SAMPLE_INSTANCE *sample_instance);
 

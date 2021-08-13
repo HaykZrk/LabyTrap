@@ -99,14 +99,14 @@ void test_ttf (void) {
  * @brief Font test.
  *
  */
-void test_font (void) {
-    if (!arial72)
+void test_font (ALLEGRO_FONT *font) {
+    if (!font)
         error ("al_load_font()");
 }
 
 /**
  * @brief Audio test.
- * 
+ *
  */
 void test_audio (void) {
     if (!al_install_audio ())
@@ -115,7 +115,7 @@ void test_audio (void) {
 
 /**
  * @brief Acodec test.
- * 
+ *
  */
 void test_acodec (void) {
     if (!al_init_acodec_addon ())
@@ -124,8 +124,8 @@ void test_acodec (void) {
 
 /**
  * @brief Sample song test.
- * 
- * @param[in] sample 
+ *
+ * @param[in] sample
  */
 void test_sample (ALLEGRO_SAMPLE *sample) {
     if (!sample)
@@ -134,8 +134,8 @@ void test_sample (ALLEGRO_SAMPLE *sample) {
 
 /**
  * @brief Sample instance song test.
- * 
- * @param[in] sample_instance 
+ *
+ * @param[in] sample_instance
  */
 void test_sample_instance (ALLEGRO_SAMPLE_INSTANCE *sample_instance) {
     if (!sample_instance)
