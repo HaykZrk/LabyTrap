@@ -44,8 +44,17 @@ Versioning in my git repository goes like this :
         allegro-5.0.10-monolith-mt
 
 - For Visual Studio :
-        COMING SOON
         
+        Create a project (Empty project)
+        New file -> Visual C++ -> File C++ (.cpp)
+        WARNING : Being in C++ will not affect the code later, because C is included in C++
 
+        Go to the propeties : 
+        
+        Any configuration -> C/C++ -> General ->  Go to the other include directory -> Add folder include (allegro 5)
+        Any configuration -> Link editor -> General -> Go to the additional library directories -> Add folder lib (allegro 5)
+
+        Debug -> Link editor -> Input -> Additional outbuildings -> Add allegro-5.0.10-monolith-mt-degug.lib
+        Release -> Link editor -> Input -> Additional outbuildings -> Add allegro-5.0.10-monolith-mt.lib 
 #
 
