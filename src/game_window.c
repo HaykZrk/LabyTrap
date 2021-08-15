@@ -52,7 +52,7 @@ void game (void) {
     test_audio ();
     test_acodec ();
 
-    al_reserve_samples (10);
+    al_reserve_samples (1);
     MENU_Song = al_load_sample ("audio/menu_song.wav");
     test_sample (MENU_Song);
 
@@ -65,10 +65,6 @@ void game (void) {
     al_register_event_source (queue, al_get_keyboard_event_source());
     al_register_event_source (queue, al_get_mouse_event_source());
     al_register_event_source (queue, al_get_timer_event_source(timer));
-
-    al_get_keyboard_state (&key);
-    al_get_mouse_state (&mouse);
-
     //al_start_timer (timer);
 
     while (continuer){
@@ -95,7 +91,7 @@ void game (void) {
         al_draw_textf (arial72, BLACK, 400, 200, ALLEGRO_ALIGN_CENTRE, "Play");
         al_draw_textf (arial72, BLACK, 400, 0, ALLEGRO_ALIGN_CENTRE, "LabyTrap");
         al_draw_textf (arial15, BLACK, 0, 0, ALLEGRO_ALIGN_LEFT, "STOP MUSIC");
-
+        al_draw_textf (arial15, BLACK, 800, 0, ALLEGRO_ALIGN_RIGHT, "PLAY MUSIC");
 
         if (mouse.x > 320 && mouse.x < 480 && mouse.y > 400 && mouse.y < 480) {
             al_draw_textf (arial72, ORANGE, 400, 400, ALLEGRO_ALIGN_CENTRE, "Exit");
@@ -120,7 +116,13 @@ void game (void) {
             }
         }
 
+        if (mouse.x > 700 && mouse.x < 800 && mouse.y > 0 && mouse.y < 15) {
+            al_draw_textf (arial15, ORANGE, 800, 0, ALLEGRO_ALIGN_RIGHT, "PLAY MUSIC");
+            if (is_mouse_pressed (&mouse, 1, 1))
+                MENU_song_active = true;
+        }
+
+
         al_flip_display ();
    }
-    free_total ();
 }

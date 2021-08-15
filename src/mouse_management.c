@@ -19,14 +19,14 @@
  * @return int
  */
 int is_mouse_pressed (ALLEGRO_MOUSE_STATE *mouse, int btn, int repeat) {
-    int static *PRESS;
     int res = 0;
     int nbbtn = al_get_mouse_num_buttons();
+    int static PRESS[5];
 
-    if (PRESS == NULL) {
+    /*if (PRESS == NULL) {
         PRESS = (int*)calloc(nbbtn + 1, sizeof(int));
         memset (PRESS, 0, sizeof(int) * (nbbtn + 1));
-    }
+    }*/
 
     if (btn > nbbtn)
         btn = nbbtn;
@@ -37,7 +37,6 @@ int is_mouse_pressed (ALLEGRO_MOUSE_STATE *mouse, int btn, int repeat) {
     }
     else if (!al_mouse_button_down (mouse, btn))
         PRESS[btn] = 0;
-    free (PRESS);
 
     return res;
 }

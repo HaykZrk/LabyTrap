@@ -16,6 +16,7 @@
 #include "../include/keyboard_management.h"
 #include "../include/mouse_management.h"
 #include "../include/game_window.h"
+#include "../include/garbage_collector.h"
 
 /**
  * @brief Main function.
@@ -26,5 +27,6 @@ int main()
 {
     srand (time(NULL));
     game ();
+    free_total ();
     return 0;
 }
