@@ -24,18 +24,20 @@
 #define WHITE al_map_rgb (255, 255, 255)
 #define ORANGE al_map_rgb (255, 57, 0)
 
-ALLEGRO_DISPLAY *display;
-ALLEGRO_EVENT_QUEUE *queue;
-ALLEGRO_TIMER *timer;
+bool continuer;
+
 ALLEGRO_MOUSE_STATE mouse;
 ALLEGRO_KEYBOARD_STATE key;
+
 ALLEGRO_FONT *arial72;
-ALLEGRO_FONT * arial15;
+ALLEGRO_FONT *arial15;
+
 ALLEGRO_SAMPLE *MENU_Song;
+ALLEGRO_SAMPLE *MENU_Click_Song;
 ALLEGRO_SAMPLE_INSTANCE *songInstance;
 
 /**
  * @brief Main function to start the game menu.
  *
  */
-void game (void);
+void game_window (void);

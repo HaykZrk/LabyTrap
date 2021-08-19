@@ -12,6 +12,7 @@
 #define ERROR_HANDLING_H
 
 #include "game_window.h"
+#include "menu.h"
 
 /**
  * @brief Display of error text.

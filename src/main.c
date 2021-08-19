@@ -26,7 +26,7 @@
 int main()
 {
     srand (time(NULL));
-    game ();
+    game_window ();
     free_total ();
     return 0;
 }

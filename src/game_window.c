@@ -13,14 +13,15 @@
 #include "../include/mouse_management.h"
 #include "../include/error_handling.h"
 #include "../include/garbage_collector.h"
+#include "../include/event.h"
+#include "../include/menu.h"
 
 /**
  * @brief Main function to start the game menu.
  *
  */
-void game (void) {
-    bool continuer = true;
-    bool MENU_song_active = true;
+void game_window (void) {
+    continuer = true;
     int oldx = 0, oldy = 0;
     test_init ();
 
@@ -56,20 +57,18 @@ void game (void) {
     MENU_Song = al_load_sample ("audio/menu_song.wav");
     test_sample (MENU_Song);
 
+    MENU_Click_Song = al_load_sample ("audio/menu_click_song.ogg");
+    test_sample (MENU_Click_Song);
+
     songInstance = al_create_sample_instance (MENU_Song);
     test_sample_instance (songInstance);
     al_set_sample_instance_playmode (songInstance, ALLEGRO_PLAYMODE_LOOP);
     al_attach_sample_instance_to_mixer (songInstance, al_get_default_mixer ());
 
-    al_register_event_source (queue, al_get_display_event_source(display));
-    al_register_event_source (queue, al_get_keyboard_event_source());
-    al_register_event_source (queue, al_get_mouse_event_source());
-    al_register_event_source (queue, al_get_timer_event_source(timer));
+    register_event ();
     //al_start_timer (timer);
 
     while (continuer){
-        if (MENU_song_active)
-            al_play_sample_instance (songInstance);
         al_clear_to_color (WHITE);
 
         ALLEGRO_EVENT event;
@@ -86,43 +85,8 @@ void game (void) {
             oldy = mouse.y;
         }
 
-        al_draw_textf (arial72, BLACK, 400, 400, ALLEGRO_ALIGN_CENTRE, "Exit");
-        al_draw_textf (arial72, BLACK, 400, 300, ALLEGRO_ALIGN_CENTRE, "Settings");
-        al_draw_textf (arial72, BLACK, 400, 200, ALLEGRO_ALIGN_CENTRE, "Play");
-        al_draw_textf (arial72, BLACK, 400, 0, ALLEGRO_ALIGN_CENTRE, "LabyTrap");
-        al_draw_textf (arial15, BLACK, 0, 0, ALLEGRO_ALIGN_LEFT, "STOP MUSIC");
-        al_draw_textf (arial15, BLACK, 800, 0, ALLEGRO_ALIGN_RIGHT, "PLAY MUSIC");
-
-        if (mouse.x > 320 && mouse.x < 480 && mouse.y > 400 && mouse.y < 480) {
-            al_draw_textf (arial72, ORANGE, 400, 400, ALLEGRO_ALIGN_CENTRE, "Exit");
-            if (is_mouse_pressed (&mouse, 1, 1)) {
-                continuer = false;
-            }
-        }
-
-        if (mouse.x > 300 && mouse.x < 500 && mouse.y > 300 && mouse.y < 380) {
-            al_draw_textf (arial72, ORANGE, 400, 300, ALLEGRO_ALIGN_CENTRE, "Settings");
-        }
-
-        if (mouse.x > 320 && mouse.x < 480 && mouse.y > 200 && mouse.y < 280) {
-            al_draw_textf (arial72, ORANGE, 400, 200, ALLEGRO_ALIGN_CENTRE, "Play");
-        }
-
-        if (mouse.x > 0 && mouse.x < 100 && mouse.y > 0 && mouse.y < 15) {
-            al_draw_textf (arial15, ORANGE, 0, 0, ALLEGRO_ALIGN_LEFT, "STOP MUSIC");
-            if (is_mouse_pressed (&mouse, 1, 1)) {
-                al_stop_sample_instance (songInstance);
-                MENU_song_active = false;
-            }
-        }
-
-        if (mouse.x > 700 && mouse.x < 800 && mouse.y > 0 && mouse.y < 15) {
-            al_draw_textf (arial15, ORANGE, 800, 0, ALLEGRO_ALIGN_RIGHT, "PLAY MUSIC");
-            if (is_mouse_pressed (&mouse, 1, 1))
-                MENU_song_active = true;
-        }
-
-
+        launch_display ();
+        menu_dynamic ();
         al_flip_display ();
    }
 }

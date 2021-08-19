@@ -10,6 +10,7 @@
  */
 #include "../include/error_handling.h"
 #include "../include/game_window.h"
+#include "../include/event.h"
 
 /**
  * @brief Display of error text.
@@ -98,6 +99,7 @@ void test_ttf (void) {
 /**
  * @brief Font test.
  *
+ * @param[in] font
  */
 void test_font (ALLEGRO_FONT *font) {
     if (!font)
