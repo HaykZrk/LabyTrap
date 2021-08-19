@@ -4,7 +4,7 @@
 
 Versioning in my git repository goes like this : 
 
-- In the branch : Master 
+- In the branch : master 
         -> Final version
 
 
