@@ -4,6 +4,18 @@
 
 Versioning in my git repository goes like this : 
 
+- In the branch : Master
+
+
+- In the branch : files
+        The files of the allegro 5 library
+
+- In the tags : v0.3
+
+- In the tags : v0.2
+
+- In the tags : v0.1
+
 #
       USE OF THE ALLEGRO 5 LIBRARY
 
