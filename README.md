@@ -11,11 +11,14 @@ Versioning in my git repository goes like this :
 - In the branch : files
         -> The files of the allegro 5 library and subject
 
+- In the tags : v0.4
+
 - In the tags : v0.3
 
 - In the tags : v0.2
 
 - In the tags : v0.1
+        -> Game window preparation ready
 
 #
       USE OF THE ALLEGRO 5 LIBRARY
