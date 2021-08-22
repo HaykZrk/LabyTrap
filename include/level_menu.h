@@ -1,28 +1,28 @@
 /**
- * @file menu.h
+ * @file level_menu.h
  * @author ZARIKIAN Hayk (haykzrk@gmail.com)
- * @brief Menu file.
+ * @brief Level menu file.
  * @version 0.1
- * @date 2021-08-19
+ * @date 2021-08-22
  * 
  * @copyright Copyright (c) 2021
  * 
  */
-#ifndef MENU_H
-#define MENU_H
+#ifndef LEVEL_MENU_H
+#define LEVEL_MENU_H
 
 #include <allegro5/allegro.h>
 
 /**
- * @brief Launch display (without dynamism).
+ * @brief Level launch display (without dynamism).
  * 
  */
-void launch_display (void);
+void level_launch_display (void);
 
 /**
  * @brief Activation of menu interaction (clicks, color change, ...).
  * 
  */
-void menu_dynamic (void);
+void level_menu_dynamic (void);
 
-#endif 
+#endif

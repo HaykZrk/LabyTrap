@@ -15,6 +15,7 @@
 #include "../include/garbage_collector.h"
 #include "../include/event.h"
 #include "../include/menu.h"
+#include "../include/level_menu.h"
 
 /**
  * @brief Main function to start the game menu.
@@ -22,9 +23,17 @@
  */
 void game_window (void) {
     continuer = true;
-    int oldx = 0, oldy = 0;
-    test_init ();
+    play = false;
 
+    owl_go = 0;
+    x = -100;
+    y = 100;
+
+    active_level = 0;
+
+    int oldx = 0, oldy = 0;
+
+    test_init ();
     al_set_new_display_flags (ALLEGRO_WINDOWED);
     display = al_create_display (800, 600);
     al_set_window_title (display, "LabyTrap");
@@ -33,7 +42,7 @@ void game_window (void) {
     queue = al_create_event_queue ();
     test_queue ();
 
-    timer = al_create_timer (2.0);
+    timer = al_create_timer (1.0 / 10);
     test_timer ();
 
     test_mouse ();
@@ -42,11 +51,37 @@ void game_window (void) {
     al_init_font_addon ();
     test_ttf ();
 
+    al_init_primitives_addon ();
+    test_primitives ();
+
+    al_init_image_addon ();
+    if (!al_init_image_addon ())
+        error ("al_init_image_addon()");
+
+    image_owl_face = al_load_bitmap ("assets/characters/owl_face.png");
+    if (!image_owl_face)
+        error ("al_load_bitmap()");
+
+    image_owl_go_right_left = al_load_bitmap ("assets/characters/owl_go_right-left.png");
+    if (!image_owl_go_right_left)
+        error ("al_load_bitmap()");
+
+    image_return = al_load_bitmap ("assets/utility/return.png");
+    if (!image_return)
+        error ("al_load_bitmap()");
+
+    image_return_active = al_load_bitmap ("assets/utility/return_active.png");
+    if (!image_return_active)
+        error ("al_load_bitmap()");
+
     arial72 = al_load_font ("fonts/arial.ttf", 72, 0);
     test_font (arial72);
 
     arial15 = al_load_font ("fonts/arial.ttf", 15, 0);
     test_font (arial15);
+
+    arial30 = al_load_font ("fonts/arial.ttf", 30, 0);
+    test_font (arial30);
 
     al_install_audio ();
     al_init_acodec_addon ();
@@ -66,27 +101,56 @@ void game_window (void) {
     al_attach_sample_instance_to_mixer (songInstance, al_get_default_mixer ());
 
     register_event ();
-    //al_start_timer (timer);
+    al_start_timer (timer);
 
     while (continuer){
-        al_clear_to_color (WHITE);
+        if (!play) {
+            al_clear_to_color (WHITE);
 
-        ALLEGRO_EVENT event;
-        al_wait_for_event (queue, &event);
-        if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
-            continuer = false;
+            ALLEGRO_EVENT event;
+            al_wait_for_event (queue, &event);
+            if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
+                continuer = false;
 
-        //else if (event.type == ALLEGRO_EVENT_TIMER) {
-        al_get_keyboard_state (&key);
-        al_get_mouse_state (&mouse);
+            else if (event.type == ALLEGRO_EVENT_TIMER) {
+                al_get_keyboard_state (&key);
+                al_get_mouse_state (&mouse);
 
-        if (oldx != mouse.x || oldy != mouse.y){
-            oldx = mouse.x;
-            oldy = mouse.y;
+                if (oldx != mouse.x || oldy != mouse.y){
+                    oldx = mouse.x;
+                    oldy = mouse.y;
+                }
+                launch_display ();
+                menu_dynamic ();
+
+                if (owl_go == 0)
+                    owl_go = 1;
+                else
+                    owl_go = 0;
+
+                x++;
+                if (x > 830)
+                    x = -30;
+                al_flip_display ();
+            }
         }
+        else if (play) {
+            al_clear_to_color (WHITE);
 
-        launch_display ();
-        menu_dynamic ();
-        al_flip_display ();
+            ALLEGRO_EVENT event;
+            al_wait_for_event (queue, &event);
+            if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
+                continuer = false;
+
+            else if (event.type == ALLEGRO_EVENT_TIMER) {
+                al_get_keyboard_state (&key);
+                al_get_mouse_state (&mouse);
+
+                level_launch_display ();
+                level_menu_dynamic ();
+
+                al_flip_display ();
+            }
+        }
    }
 }

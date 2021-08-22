@@ -26,8 +26,14 @@ void free_total (void) {
 
     al_destroy_font (arial72);
     al_destroy_font (arial15);
+    al_destroy_font (arial30);
 
     al_destroy_sample (MENU_Song);
     al_destroy_sample (MENU_Click_Song);
     al_destroy_sample_instance (songInstance);
+
+    al_destroy_bitmap (image_owl_face);
+    al_destroy_bitmap (image_owl_go_right_left);
+    al_destroy_bitmap (image_return);
+    al_destroy_bitmap (image_return_active);
 }

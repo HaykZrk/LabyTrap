@@ -4,9 +4,9 @@
  * @brief Menu file.
  * @version 0.1
  * @date 2021-08-19
- * 
+ *
  * @copyright Copyright (c) 2021
- * 
+ *
  */
 #include "../include/menu.h"
 #include "../include/game_window.h"
@@ -20,13 +20,22 @@ bool MENU_song_active = true;
 
 /**
  * @brief Launch display (without dynamism).
- * 
+ *
  */
 void launch_display (void) {
+    if (owl_go == 0) {
+        al_draw_bitmap (image_owl_face, x, y, 0);
+    }
+    else {
+        al_draw_bitmap (image_owl_go_right_left, x, y, 0);
+    }
+
     al_draw_textf (arial72, BLACK, 400, 0, ALLEGRO_ALIGN_CENTRE, "LabyTrap");
 
     al_draw_textf (arial15, BLACK, 800, 0, ALLEGRO_ALIGN_RIGHT, "PLAY MUSIC");
     al_draw_textf (arial15, BLACK, 0, 0, ALLEGRO_ALIGN_LEFT, "STOP MUSIC");
+
+    al_draw_line (0, 90, 800, 90, BLACK, 3);
 
     al_draw_textf (arial72, BLACK, 400, 200, ALLEGRO_ALIGN_CENTRE, "Play");
     al_draw_textf (arial72, BLACK, 400, 300, ALLEGRO_ALIGN_CENTRE, "Settings");
@@ -35,7 +44,7 @@ void launch_display (void) {
 
 /**
  * @brief Activation of menu interaction (clicks, color change, ...).
- * 
+ *
  */
 void menu_dynamic (void) {
     if (MENU_song_active)
@@ -55,7 +64,7 @@ void menu_dynamic (void) {
         }
     }
 
-    if ((mouse.x < 320 || mouse.x > 480) || (mouse.y < 200 || mouse.y > 280))
+    if ((mouse.x <= 320 || mouse.x >= 480) || (mouse.y <= 200 || mouse.y >= 280))
         MENU_click_song_active_play = true;
     if ((mouse.x <= 250 || mouse.x >= 550) || (mouse.y <= 300 || mouse.y >= 380))
         MENU_click_song_active_settings = true;
@@ -68,6 +77,10 @@ void menu_dynamic (void) {
             MENU_click_song_active_play = false;
         }
         al_draw_textf (arial72, ORANGE, 400, 200, ALLEGRO_ALIGN_CENTRE, "Play");
+        if (is_mouse_pressed (&mouse, 1, 1)) {
+            al_stop_sample_instance (songInstance);
+            play = true;
+        }
     }
 
     if (mouse.x > 250 && mouse.x < 550 && mouse.y > 300 && mouse.y < 380) {

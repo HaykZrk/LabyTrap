@@ -23,4 +23,4 @@ ALLEGRO_TIMER *timer;
  */
 void register_event (void);
 
-#endif // EVENT_H
+#endif
