@@ -5,20 +5,22 @@
 Versioning in my git repository goes like this : 
 
 - In the branch : master 
-        -> Final version
-
+        -> Final version.
 
 - In the branch : files
-        -> The files of the allegro 5 library and subject
+        -> The files of the allegro 5 library and subject.
+
+- In the tags : v0.5
 
 - In the tags : v0.4
 
 - In the tags : v0.3
 
 - In the tags : v0.2
+        -> Game menu coding.
 
 - In the tags : v0.1
-        -> Game window preparation ready
+        -> Game window preparation ready.
 
 #
       USE OF THE ALLEGRO 5 LIBRARY
@@ -34,7 +36,7 @@ Versioning in my git repository goes like this :
         MSVC 11 / allegro-5.0.10-msvc-11.0.zip
 
 - Easy installation : 
-        Allegro 5 available in the "files" branch for CodeBlock and Visual Studio
+        Allegro 5 available in the "files" branch for CodeBlock and Visual Studio.
 
         POSITIONING OF DLL
 
