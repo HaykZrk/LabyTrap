@@ -15,6 +15,7 @@ Versioning in my git repository goes like this :
 - In the tags : v0.4
 
 - In the tags : v0.3
+        -> Add music and complete menu.
 
 - In the tags : v0.2
         -> Game menu coding.
