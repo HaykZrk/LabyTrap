@@ -13,6 +13,7 @@ Versioning in my git repository goes like this :
 - In the tags : v0.5
 
 - In the tags : v0.4
+        -> Level menu coding.
 
 - In the tags : v0.3
         -> Add music and complete menu.
