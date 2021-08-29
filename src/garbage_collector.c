@@ -36,4 +36,5 @@ void free_total (void) {
     al_destroy_bitmap (image_owl_go_right_left);
     al_destroy_bitmap (image_return);
     al_destroy_bitmap (image_return_active);
+    al_destroy_bitmap (image_flag);
 }

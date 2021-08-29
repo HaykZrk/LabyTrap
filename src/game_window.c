@@ -74,6 +74,10 @@ void game_window (void) {
     if (!image_return_active)
         error ("al_load_bitmap()");
 
+    image_flag = al_load_bitmap ("assets/utility/flag.png");
+    if (!image_flag)
+        error ("al_load_bitmap()");
+
     arial72 = al_load_font ("fonts/arial.ttf", 72, 0);
     test_font (arial72);
 

@@ -70,6 +70,8 @@ void level_menu_dynamic (void) {
             if (is_mouse_pressed (&mouse, 1, 1)) {
                 continuer_level = true;
                 active_level = 0;
+                    dx = 30;
+                    dy = 205;
                 while (continuer_level)
                     level_1 ();
             }
