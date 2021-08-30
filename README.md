@@ -11,6 +11,7 @@ Versioning in my git repository goes like this :
         -> The files of the allegro 5 library and subject.
 
 - In the tags : v0.5
+        -> Labyrinth creation (Level 1).
 
 - In the tags : v0.4
         -> Level menu coding.
