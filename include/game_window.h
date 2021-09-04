@@ -8,6 +8,9 @@
  * @copyright Copyright (c) 2021
  *
  */
+#ifndef GAME_WINDOW
+#define GAME_WINDOW
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -29,6 +32,21 @@
 #define ORANGE al_map_rgb (255, 57, 0)
 #define GREY al_map_rgba (90, 90, 90, 150)
 
+enum {
+    UP,
+    RIGHT,
+    DOWN,
+    LEFT,
+    KEYMAX
+};
+
+bool dessine;
+bool keyy[KEYMAX];
+int dir, cmptimage, image;
+int posx, posy;
+char nom[256];
+bool testtt;
+
 bool continuer;
 bool play;
 
@@ -49,6 +67,7 @@ ALLEGRO_BITMAP *image_owl_go_right_left;
 ALLEGRO_BITMAP *image_return;
 ALLEGRO_BITMAP *image_return_active;
 ALLEGRO_BITMAP *image_flag;
+ALLEGRO_BITMAP *anim[8];
 
 ALLEGRO_SAMPLE *MENU_Song;
 ALLEGRO_SAMPLE *MENU_Click_Song;
@@ -60,3 +79,5 @@ ALLEGRO_SAMPLE_INSTANCE *songInstance;
  *
  */
 void game_window (void);
+
+#endif

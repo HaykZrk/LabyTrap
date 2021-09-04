@@ -37,4 +37,6 @@ void free_total (void) {
     al_destroy_bitmap (image_return);
     al_destroy_bitmap (image_return_active);
     al_destroy_bitmap (image_flag);
+    for (int i = 0; i < 8; i++)
+        al_destroy_bitmap (anim[i]);
 }

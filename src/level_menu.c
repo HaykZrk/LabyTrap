@@ -72,8 +72,13 @@ void level_menu_dynamic (void) {
                 active_level = 0;
                     dx = 30;
                     dy = 205;
-                while (continuer_level)
+                    posx = 30;
+                    posy = 208;
+                while (continuer_level) {
                     level_1 ();
+                    if (image == 1)
+                        image = 0;
+                }
             }
         }
     }

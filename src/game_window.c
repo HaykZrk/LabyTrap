@@ -22,6 +22,9 @@
  *
  */
 void game_window (void) {
+    for (int i = 0; i < KEYMAX; i++)
+        keyy[i] = false;
+    dessine = true;
     continuer = true;
     play = false;
 
@@ -92,7 +95,7 @@ void game_window (void) {
     test_audio ();
     test_acodec ();
 
-    al_reserve_samples (1);
+    al_reserve_samples (10);
     MENU_Song = al_load_sample ("audio/menu_song.wav");
     test_sample (MENU_Song);
 
@@ -105,6 +108,16 @@ void game_window (void) {
     al_attach_sample_instance_to_mixer (songInstance, al_get_default_mixer ());
 
     register_event ();
+
+    for (int i = 0; i < 8; i++) {
+        sprintf (nom, "assets/characters/z%d.png", i);
+        anim[i] = al_load_bitmap (nom);
+        if (!anim[i])
+            error ("al_load_bitmap()");
+    }
+    dir = cmptimage = 0;
+    image = 2;
+
     al_start_timer (timer);
 
     while (continuer){
