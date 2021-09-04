@@ -81,4 +81,7 @@ Versioning in my git repository goes like this :
         Debug -> Link editor -> Input -> Additional outbuildings -> Add allegro-5.0.10-monolith-mt-degug.lib
         Release -> Link editor -> Input -> Additional outbuildings -> Add allegro-5.0.10-monolith-mt.lib 
 #
+        HOW THE GAME WORKS
+
+- WARNING : Settings -> COMING SOON
 
