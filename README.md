@@ -10,6 +10,9 @@ Versioning in my git repository goes like this :
 - In the branch : files
         -> The files of the allegro 5 library and subject.
 
+- In the tags : v0.7
+        ->
+
 - In the tags : v0.6
         -> Programming of the character movement.
         
