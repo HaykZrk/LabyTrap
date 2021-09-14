@@ -62,24 +62,19 @@ void game_window (void) {
         error ("al_init_image_addon()");
 
     image_owl_face = al_load_bitmap ("assets/characters/owl_face.png");
-    if (!image_owl_face)
-        error ("al_load_bitmap()");
+    test_image_flag (image_owl_face);
 
     image_owl_go_right_left = al_load_bitmap ("assets/characters/owl_go_right-left.png");
-    if (!image_owl_go_right_left)
-        error ("al_load_bitmap()");
+    test_image_flag (image_owl_go_right_left);
 
     image_return = al_load_bitmap ("assets/utility/return.png");
-    if (!image_return)
-        error ("al_load_bitmap()");
+    test_image_flag (image_return);
 
     image_return_active = al_load_bitmap ("assets/utility/return_active.png");
-    if (!image_return_active)
-        error ("al_load_bitmap()");
+    test_image_flag (image_return_active);
 
     image_flag = al_load_bitmap ("assets/utility/flag.png");
-    if (!image_flag)
-        error ("al_load_bitmap()");
+    test_image_flag (image_flag);
 
     arial72 = al_load_font ("fonts/arial.ttf", 72, 0);
     test_font (arial72);
@@ -112,8 +107,7 @@ void game_window (void) {
     for (int i = 0; i < 8; i++) {
         sprintf (nom, "assets/characters/z%d.png", i);
         anim[i] = al_load_bitmap (nom);
-        if (!anim[i])
-            error ("al_load_bitmap()");
+        test_image_flag (anim[i]);
     }
     dir = cmptimage = 0;
     image = 2;

@@ -144,3 +144,8 @@ void test_sample_instance (ALLEGRO_SAMPLE_INSTANCE *sample_instance) {
         error ("al_create_sample_instance ()");
 }
 
+void test_image_flag (ALLEGRO_BITMAP *image) {
+    if (!image)
+        error ("al_load_bitmap()");
+}
+

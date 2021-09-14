@@ -45,7 +45,6 @@ bool keyy[KEYMAX];
 int dir, cmptimage, image;
 int posx, posy;
 char nom[256];
-bool testtt;
 
 bool continuer;
 bool play;

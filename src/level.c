@@ -57,8 +57,17 @@ void level_1 (void) {
     else if (event.type == ALLEGRO_EVENT_TIMER) {
         al_get_keyboard_state (&key);
         al_get_mouse_state (&mouse);
-        posx += 10 * keyy[RIGHT];
-        posx -= 10 * keyy[LEFT];
+        if (posx > 100 && posx < 120 && posy < 230 && posy > 160)
+            posx += 0;
+        else
+            posx += 10 * keyy[RIGHT];
+
+        if (posx < 160 && posx > 130 && posy < 230 && posy > 160)
+            posx -= 0;
+        else
+            posx -= 10 * keyy[LEFT];
+
+
         posy += 10 * keyy[DOWN];
         posy -= 10 * keyy[UP];
         dessine = true;
