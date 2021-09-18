@@ -4,8 +4,10 @@
 #include <allegro5/allegro.h>
 
 bool continuer_level;
-int dx, dy;
+int image_flag_active;
 
 void level_1 (void);
+
+void victory_level (void);
 
 #endif

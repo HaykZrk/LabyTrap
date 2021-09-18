@@ -8,6 +8,8 @@ void level_1 (void) {
     ALLEGRO_EVENT event;
     al_wait_for_event (queue, &event);
 
+    image_flag_active = 0;
+
     if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
         continuer_level = false;
         continuer = false;
@@ -57,19 +59,53 @@ void level_1 (void) {
     else if (event.type == ALLEGRO_EVENT_TIMER) {
         al_get_keyboard_state (&key);
         al_get_mouse_state (&mouse);
-        if (posx > 100 && posx < 120 && posy < 230 && posy > 160)
+
+        if (posx > 670 && posx < 745 && posy < 465 && posy > 420) {
+            image_flag_active = 1;
+            if (is_key_pressed (&key, ALLEGRO_KEY_SPACE, 1))
+                while (continuer_level)
+                    victory_level ();
+        }
+        else
+            image_flag_active = 0;
+
+        if ( (posx > 100 && posx < 120 && posy < 230 && posy > 160) ||
+             (posx > 160 && posx < 180 && posy < 280 && posy > 120) ||
+             (posx > 120 && posx < 140 && posy < 420 && posy > 280) ||
+             (posx > 700 && posy < 510 && posy > 420)               ||
+             (posx > 60 && posx < 100 && posy < 510 && posy > 280)  ||
+             (posx > 600 && posy < 410 && posy > 300)               )
             posx += 0;
         else
             posx += 10 * keyy[RIGHT];
 
-        if (posx < 160 && posx > 130 && posy < 230 && posy > 160)
+        if ( (posx < 160 && posx > 130 && posy < 230 && posy > 160) ||
+             (posx < 60 && posx > 49 && posy < 500 && posy > 145)   ||
+             (posx < 120 && posx > 90 && posy < 510 && posy > 280)  ||
+             (posx < 410 && posx > 390 && posy < 420 && posy > 280) )
             posx -= 0;
         else
             posx -= 10 * keyy[LEFT];
 
+        if ( (posx < 720 && posx > 40 && posy > 490) ||
+             (posx < 130 && posx > 40 && posy > 200 && posy < 220)  ||
+             (posx < 210 && posx > 130 && posy > 260 && posy < 300) )
+            posy += 0;
+        else
+            posy += 10 * keyy[DOWN];
 
-        posy += 10 * keyy[DOWN];
-        posy -= 10 * keyy[UP];
+        if ( (posx > 40 && posy > 130 && posy < 150 ) ||
+             (posx > 40 && posx < 140 && posy > 230 && posy < 250)  ||
+             (posx > 130 && posx < 400 && posy > 420 && posy < 440) ||
+             (posx > 390 && posx < 650 && posy > 310 && posy < 330) ||
+             (posx > 610 && posx < 750 && posy > 430 && posy < 450) )
+            posy += 0;
+        else
+            posy -= 10 * keyy[UP];
+
+
+        printf ("mouse x : %d, mouse y : %d\n", mouse.x, mouse.y);
+
         dessine = true;
     }
     if (dessine == true && al_is_event_queue_empty (queue)) {
@@ -91,17 +127,24 @@ void level_1 (void) {
     al_draw_line (212, 310, 160, 310, BLACK, 5);
     al_draw_line (163, 310, 163, 438, BLACK, 5);
     al_draw_line (103, 310, 103, 540, BLACK, 5);
-    al_draw_line (160, 488, 750, 488, BLACK, 5);
+    //al_draw_line (160, 488, 750, 488, BLACK, 5);
     al_draw_line (160, 438, 400, 438, BLACK, 5);
-    al_draw_line (450, 438, 600, 438, BLACK, 5);
+    //al_draw_line (450, 438, 600, 438, BLACK, 5);
     al_draw_line (650, 438, 750, 438, BLACK, 5);
     al_draw_line (398, 438, 398, 320, BLACK, 5);
-    al_draw_line (453, 438, 453, 388, BLACK, 5);
-    al_draw_line (598, 438, 598, 388, BLACK, 5);
-    al_draw_line (600, 388, 450, 388, BLACK, 5);
+    //al_draw_line (453, 438, 453, 388, BLACK, 5);
+    //al_draw_line (598, 438, 598, 388, BLACK, 5);
+    //al_draw_line (600, 388, 450, 388, BLACK, 5);
     al_draw_line (650, 440, 650, 320, BLACK, 5);
     al_draw_line (395, 320, 652, 320, BLACK, 5);
-    al_draw_bitmap (image_flag, 720, 448, 0);
+
+    if (image_flag_active == 0) {
+        al_draw_bitmap (image_flag, 710, 448, 0);
+    }
+    else {
+        al_draw_bitmap (image_flag_green, 710, 448, 0);
+    }
+
 
         if (mouse.x > 0 && mouse.x < 30 && mouse.y > 0 && mouse.y < 30) {
             al_draw_bitmap (image_return_active, 0, 0, 0);
@@ -116,5 +159,35 @@ void level_1 (void) {
 
         dessine = false;
     }
+
+}
+
+void victory_level (void) {
+
+    al_clear_to_color (WHITE);
+
+    ALLEGRO_EVENT event;
+    al_wait_for_event (queue, &event);
+    if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
+        continuer = false;
+        continuer_level = false;
+    }
+
+    else if (event.type == ALLEGRO_EVENT_TIMER) {
+        al_get_keyboard_state (&key);
+        al_get_mouse_state (&mouse);
+
+        al_draw_textf (arial72, BLACK, 400, 250, ALLEGRO_ALIGN_CENTRE, "VICTORY");
+
+        al_flip_display ();
+        al_rest(2);
+        continuer_level = false;
+        al_flip_display ();
+
+    }
+
+
+
+
 
 }

@@ -101,6 +101,6 @@ void test_sample (ALLEGRO_SAMPLE *sample);
  */
 void test_sample_instance (ALLEGRO_SAMPLE_INSTANCE *sample_instance);
 
-void test_image_flag (ALLEGRO_BITMAP *image);
+void test_image (ALLEGRO_BITMAP *image);
 
 #endif

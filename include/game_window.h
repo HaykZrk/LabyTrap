@@ -66,6 +66,7 @@ ALLEGRO_BITMAP *image_owl_go_right_left;
 ALLEGRO_BITMAP *image_return;
 ALLEGRO_BITMAP *image_return_active;
 ALLEGRO_BITMAP *image_flag;
+ALLEGRO_BITMAP *image_flag_green;
 ALLEGRO_BITMAP *anim[8];
 
 ALLEGRO_SAMPLE *MENU_Song;
