@@ -11,10 +11,10 @@ Versioning in my git repository goes like this :
         -> The files of the allegro 5 library and subject.
 
 - In the tags : v0.8
-        -> 
+        -> Programming of traps and add decoration.
 
 - In the tags : v0.7
-        -> Collision of objects
+        -> Collision of objects.
 
 - In the tags : v0.6
         -> Programming of the character movement.
