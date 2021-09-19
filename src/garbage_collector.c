@@ -31,6 +31,9 @@ void free_total (void) {
     al_destroy_sample (MENU_Song);
     al_destroy_sample (MENU_Click_Song);
     al_destroy_sample_instance (songInstance);
+    al_destroy_sample (LEVEL_Bomb_Song);
+    al_destroy_sample (LEVEL_1_Song);
+    al_destroy_sample_instance (songInstance2);
 
     al_destroy_bitmap (image_owl_face);
     al_destroy_bitmap (image_owl_go_right_left);
@@ -40,4 +43,8 @@ void free_total (void) {
     al_destroy_bitmap (image_flag_green);
     for (int i = 0; i < 8; i++)
         al_destroy_bitmap (anim[i]);
+    al_destroy_bitmap (image_bomb);
+    al_destroy_bitmap (image_explosion);
+    al_destroy_bitmap (image_level_1_bg);
+
 }

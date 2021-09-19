@@ -79,6 +79,15 @@ void game_window (void) {
     image_flag_green = al_load_bitmap ("assets/utility/flag_green.png");
     test_image (image_flag_green);
 
+    image_bomb = al_load_bitmap ("assets/utility/bomb.png");
+    test_image (image_bomb);
+
+    image_explosion = al_load_bitmap ("assets/utility/explosion.png");
+    test_image (image_explosion);
+
+    image_level_1_bg = al_load_bitmap ("assets/utility/LEVEL_1_BACKGROUND.bmp");
+    test_image (image_level_1_bg);
+
     arial72 = al_load_font ("fonts/arial.ttf", 72, 0);
     test_font (arial72);
 
@@ -100,10 +109,21 @@ void game_window (void) {
     MENU_Click_Song = al_load_sample ("audio/menu_click_song.ogg");
     test_sample (MENU_Click_Song);
 
+    LEVEL_Bomb_Song = al_load_sample ("audio/level_bomb_song.ogg");
+    test_sample (LEVEL_Bomb_Song);
+
+    LEVEL_1_Song = al_load_sample ("audio/level_1_song.wav");
+    test_sample (LEVEL_1_Song);
+
     songInstance = al_create_sample_instance (MENU_Song);
     test_sample_instance (songInstance);
     al_set_sample_instance_playmode (songInstance, ALLEGRO_PLAYMODE_LOOP);
     al_attach_sample_instance_to_mixer (songInstance, al_get_default_mixer ());
+
+    songInstance2 = al_create_sample_instance (LEVEL_1_Song);
+    test_sample_instance (songInstance2);
+    al_set_sample_instance_playmode (songInstance2, ALLEGRO_PLAYMODE_LOOP);
+    al_attach_sample_instance_to_mixer (songInstance2, al_get_default_mixer ());
 
     register_event ();
 

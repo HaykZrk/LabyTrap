@@ -69,6 +69,7 @@ void level_menu_dynamic (void) {
             al_draw_textf (arial72, ORANGE, 400, 510, ALLEGRO_ALIGN_CENTRE, "GO");
             if (is_mouse_pressed (&mouse, 1, 1)) {
                 continuer_level = true;
+                al_play_sample_instance (songInstance2);
                 active_level = 0;
                     posx = 50;
                     posy = 208;

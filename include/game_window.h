@@ -69,10 +69,17 @@ ALLEGRO_BITMAP *image_flag;
 ALLEGRO_BITMAP *image_flag_green;
 ALLEGRO_BITMAP *anim[8];
 
+ALLEGRO_BITMAP *image_bomb;
+ALLEGRO_BITMAP *image_explosion;
+ALLEGRO_BITMAP *image_level_1_bg;
+
 ALLEGRO_SAMPLE *MENU_Song;
 ALLEGRO_SAMPLE *MENU_Click_Song;
+ALLEGRO_SAMPLE *LEVEL_Bomb_Song;
+ALLEGRO_SAMPLE *LEVEL_1_Song;
 
 ALLEGRO_SAMPLE_INSTANCE *songInstance;
+ALLEGRO_SAMPLE_INSTANCE *songInstance2;
 
 /**
  * @brief Main function to start the game menu.

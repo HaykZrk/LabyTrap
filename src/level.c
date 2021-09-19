@@ -9,6 +9,7 @@ void level_1 (void) {
     al_wait_for_event (queue, &event);
 
     image_flag_active = 0;
+    image_bomb_active = 0;
 
     if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
         continuer_level = false;
@@ -63,11 +64,28 @@ void level_1 (void) {
         if (posx > 670 && posx < 745 && posy < 465 && posy > 420) {
             image_flag_active = 1;
             if (is_key_pressed (&key, ALLEGRO_KEY_SPACE, 1))
-                while (continuer_level)
+                while (continuer_level) {
+                    al_stop_sample_instance (songInstance2);
                     victory_level ();
+                }
         }
         else
             image_flag_active = 0;
+
+        if (posx > 490 && posx < 570 && posy > 380 && posy < 510) {
+            image_bomb_active = 1;
+            al_stop_sample_instance (songInstance2);
+            al_draw_bitmap (image_explosion, 530, 416, 0);
+            al_draw_bitmap (image_explosion, 530, 448, 0);
+            al_draw_bitmap (image_explosion, 530, 480, 0);
+            al_draw_bitmap (image_explosion, posx, posy, 0);
+            al_play_sample (LEVEL_Bomb_Song, 1, 0, 1, ALLEGRO_PLAYMODE_ONCE, 0);
+            al_flip_display ();
+            al_rest (1);
+            while (continuer_level)
+                defeat_level ();
+        }
+
 
         if ( (posx > 100 && posx < 120 && posy < 230 && posy > 160) ||
              (posx > 160 && posx < 180 && posy < 280 && posy > 120) ||
@@ -103,9 +121,6 @@ void level_1 (void) {
         else
             posy -= 10 * keyy[UP];
 
-
-        printf ("mouse x : %d, mouse y : %d\n", mouse.x, mouse.y);
-
         dessine = true;
     }
     if (dessine == true && al_is_event_queue_empty (queue)) {
@@ -115,55 +130,54 @@ void level_1 (void) {
         al_draw_bitmap (image_return, 0, 0, 0);
         al_draw_line (0, 90, 800, 90, BLACK, 3);
 
-    al_draw_line (50, 150, 750, 150, BLACK, 5);
-    al_draw_line (50, 147, 50, 200, BLACK, 5);
-    al_draw_line (50, 250, 50, 540, BLACK, 5);
-    al_draw_line (50, 538, 750, 538, BLACK, 5);
-    al_draw_line (748, 538, 748, 488, BLACK, 5);
-    al_draw_line (748, 438, 748, 150, BLACK, 5);
-    al_draw_line (47, 250, 150, 250, BLACK, 5);
-    al_draw_line (148, 248, 148, 200, BLACK, 5);
-    al_draw_line (210, 148, 210, 310, BLACK, 5);
-    al_draw_line (212, 310, 160, 310, BLACK, 5);
-    al_draw_line (163, 310, 163, 438, BLACK, 5);
-    al_draw_line (103, 310, 103, 540, BLACK, 5);
-    //al_draw_line (160, 488, 750, 488, BLACK, 5);
-    al_draw_line (160, 438, 400, 438, BLACK, 5);
-    //al_draw_line (450, 438, 600, 438, BLACK, 5);
-    al_draw_line (650, 438, 750, 438, BLACK, 5);
-    al_draw_line (398, 438, 398, 320, BLACK, 5);
-    //al_draw_line (453, 438, 453, 388, BLACK, 5);
-    //al_draw_line (598, 438, 598, 388, BLACK, 5);
-    //al_draw_line (600, 388, 450, 388, BLACK, 5);
-    al_draw_line (650, 440, 650, 320, BLACK, 5);
-    al_draw_line (395, 320, 652, 320, BLACK, 5);
+        al_draw_tinted_bitmap (image_level_1_bg, al_map_rgb(120, 120, 120), 0, 90, 0);
+        al_draw_textf (arial15, BLACK, 450, 200, ALLEGRO_ALIGN_LEFT, "THE PROBLEME IS NOT THE PROBLEM");
 
-    if (image_flag_active == 0) {
-        al_draw_bitmap (image_flag, 710, 448, 0);
-    }
-    else {
-        al_draw_bitmap (image_flag_green, 710, 448, 0);
-    }
+        al_draw_line (50, 150, 750, 150, BLACK, 5);
+        al_draw_line (50, 147, 50, 200, BLACK, 5);
+        al_draw_line (50, 250, 50, 540, BLACK, 5);
+        al_draw_line (50, 538, 750, 538, BLACK, 5);
+        al_draw_line (748, 538, 748, 488, BLACK, 5);
+        al_draw_line (748, 438, 748, 150, BLACK, 5);
+        al_draw_line (47, 250, 150, 250, BLACK, 5);
+        al_draw_line (148, 248, 148, 200, BLACK, 5);
+        al_draw_line (210, 148, 210, 310, BLACK, 5);
+        al_draw_line (212, 310, 160, 310, BLACK, 5);
+        al_draw_line (163, 310, 163, 438, BLACK, 5);
+        al_draw_line (103, 310, 103, 540, BLACK, 5);
+        al_draw_line (160, 438, 400, 438, BLACK, 5);
+        al_draw_line (650, 438, 750, 438, BLACK, 5);
+        al_draw_line (398, 438, 398, 320, BLACK, 5);
+        al_draw_line (650, 440, 650, 320, BLACK, 5);
+        al_draw_line (395, 320, 652, 320, BLACK, 5);
+
+        al_draw_bitmap (image_bomb, 530, 416, 0);
+        al_draw_bitmap (image_bomb, 530, 448, 0);
+        al_draw_bitmap (image_bomb, 530, 480, 0);
+
+
+        if (image_flag_active == 0) {
+            al_draw_bitmap (image_flag, 710, 448, 0);
+        }
+        else {
+            al_draw_bitmap (image_flag_green, 710, 448, 0);
+        }
 
 
         if (mouse.x > 0 && mouse.x < 30 && mouse.y > 0 && mouse.y < 30) {
             al_draw_bitmap (image_return_active, 0, 0, 0);
             if (is_mouse_pressed (&mouse, 1, 1)) {
                 continuer_level = false;
-
             }
         }
+
         al_draw_bitmap (anim[image], posx, posy, 0);
-
         al_flip_display ();
-
         dessine = false;
     }
-
 }
 
 void victory_level (void) {
-
     al_clear_to_color (WHITE);
 
     ALLEGRO_EVENT event;
@@ -185,9 +199,27 @@ void victory_level (void) {
         al_flip_display ();
 
     }
+}
 
+void defeat_level (void) {
+    al_clear_to_color (WHITE);
 
+    ALLEGRO_EVENT event;
+    al_wait_for_event (queue, &event);
+    if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
+        continuer = false;
+        continuer_level = false;
+    }
 
+    else if (event.type == ALLEGRO_EVENT_TIMER) {
+        al_get_keyboard_state (&key);
+        al_get_mouse_state (&mouse);
 
+        al_draw_textf (arial72, BLACK, 400, 250, ALLEGRO_ALIGN_CENTRE, "DEFEAT");
 
+        al_flip_display ();
+        al_rest(2);
+        continuer_level = false;
+        al_flip_display ();
+    }
 }
