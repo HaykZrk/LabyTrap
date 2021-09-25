@@ -93,5 +93,9 @@ Versioning in my git repository goes like this :
 #
         HOW THE GAME WORKS
 
-- WARNING : Settings -> COMING SOON
+- make game : compile game.
+- make dist : create archive.
+- make docs : create documentation (doxygen).
+- make clean : delete binary and obj files, archive, documentation.
+
 
