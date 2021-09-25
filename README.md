@@ -1,5 +1,21 @@
     GENERAL INFORMATION
 #
+        HOW THE GAME WORKS
+
+COMMAND MAKEFILE :
+- make game : compile game.
+- make dist : create archive.
+- make docs : create documentation (doxygen).
+- make clean : delete binary and obj files, archive, documentation.
+
+COMMAND GAME : 
+- Key UP : UP
+- Key DOWN : DOWN
+- Key LEFT : LEFT 
+- Key RIGHT : RIGHT
+- Key SPACE ON FLAG : VICTORY   
+
+#
       VERSI0NING
 
 Versioning in my git repository goes like this : 
@@ -90,12 +106,3 @@ Versioning in my git repository goes like this :
 
         Debug -> Link editor -> Input -> Additional outbuildings -> Add allegro-5.0.10-monolith-mt-degug.lib
         Release -> Link editor -> Input -> Additional outbuildings -> Add allegro-5.0.10-monolith-mt.lib 
-#
-        HOW THE GAME WORKS
-
-- make game : compile game.
-- make dist : create archive.
-- make docs : create documentation (doxygen).
-- make clean : delete binary and obj files, archive, documentation.
-
-
