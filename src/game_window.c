@@ -61,40 +61,40 @@ void game_window (void) {
     if (!al_init_image_addon ())
         error ("al_init_image_addon()");
 
-    image_owl_face = al_load_bitmap ("assets/characters/owl_face.png");
+    image_owl_face = al_load_bitmap ("../assets/characters/owl_face.png");
     test_image (image_owl_face);
 
-    image_owl_go_right_left = al_load_bitmap ("assets/characters/owl_go_right-left.png");
+    image_owl_go_right_left = al_load_bitmap ("../assets/characters/owl_go_right-left.png");
     test_image (image_owl_go_right_left);
 
-    image_return = al_load_bitmap ("assets/utility/return.png");
+    image_return = al_load_bitmap ("../assets/utility/return.png");
     test_image (image_return);
 
-    image_return_active = al_load_bitmap ("assets/utility/return_active.png");
+    image_return_active = al_load_bitmap ("../assets/utility/return_active.png");
     test_image (image_return_active);
 
-    image_flag = al_load_bitmap ("assets/utility/flag.png");
+    image_flag = al_load_bitmap ("../assets/utility/flag.png");
     test_image (image_flag);
 
-    image_flag_green = al_load_bitmap ("assets/utility/flag_green.png");
+    image_flag_green = al_load_bitmap ("../assets/utility/flag_green.png");
     test_image (image_flag_green);
 
-    image_bomb = al_load_bitmap ("assets/utility/bomb.png");
+    image_bomb = al_load_bitmap ("../assets/utility/bomb.png");
     test_image (image_bomb);
 
-    image_explosion = al_load_bitmap ("assets/utility/explosion.png");
+    image_explosion = al_load_bitmap ("../assets/utility/explosion.png");
     test_image (image_explosion);
 
-    image_level_1_bg = al_load_bitmap ("assets/utility/LEVEL_1_BACKGROUND.bmp");
+    image_level_1_bg = al_load_bitmap ("../assets/utility/LEVEL_1_BACKGROUND.bmp");
     test_image (image_level_1_bg);
 
-    arial72 = al_load_font ("fonts/arial.ttf", 72, 0);
+    arial72 = al_load_font ("../assets/fonts/arial.ttf", 72, 0);
     test_font (arial72);
 
-    arial15 = al_load_font ("fonts/arial.ttf", 15, 0);
+    arial15 = al_load_font ("../assets/fonts/arial.ttf", 15, 0);
     test_font (arial15);
 
-    arial30 = al_load_font ("fonts/arial.ttf", 30, 0);
+    arial30 = al_load_font ("../assets/fonts/arial.ttf", 30, 0);
     test_font (arial30);
 
     al_install_audio ();
@@ -103,16 +103,16 @@ void game_window (void) {
     test_acodec ();
 
     al_reserve_samples (10);
-    MENU_Song = al_load_sample ("audio/menu_song.wav");
+    MENU_Song = al_load_sample ("../assets/audio/menu_song.wav");
     test_sample (MENU_Song);
 
-    MENU_Click_Song = al_load_sample ("audio/menu_click_song.ogg");
+    MENU_Click_Song = al_load_sample ("../assets/audio/menu_click_song.ogg");
     test_sample (MENU_Click_Song);
 
-    LEVEL_Bomb_Song = al_load_sample ("audio/level_bomb_song.ogg");
+    LEVEL_Bomb_Song = al_load_sample ("../assets/audio/level_bomb_song.ogg");
     test_sample (LEVEL_Bomb_Song);
 
-    LEVEL_1_Song = al_load_sample ("audio/level_1_song.wav");
+    LEVEL_1_Song = al_load_sample ("../assets/audio/level_1_song.wav");
     test_sample (LEVEL_1_Song);
 
     songInstance = al_create_sample_instance (MENU_Song);
@@ -128,7 +128,7 @@ void game_window (void) {
     register_event ();
 
     for (int i = 0; i < 8; i++) {
-        sprintf (nom, "assets/characters/z%d.png", i);
+        sprintf (nom, "../assets/characters/z%d.png", i);
         anim[i] = al_load_bitmap (nom);
         test_image (anim[i]);
     }
