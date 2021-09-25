@@ -1,3 +1,5 @@
+ARCHIVE = tar -cfJ -f ZARIKIAN_Hayk_LabyTrap-v1.tar.xz
+
 # Game
 game :
 	mkdir -p obj 
