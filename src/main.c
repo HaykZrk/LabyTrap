@@ -2,8 +2,8 @@
  * @file main.c
  * @author ZARIKIAN Hayk (hykzrk@gmail.com)
  * @brief Main function.
- * @version 0.1
- * @date 2021-08-10
+ * @version 1.0
+ * @date 2021-09-26
  *
  * @copyright Copyright (c) 2021
  *

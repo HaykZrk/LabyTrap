@@ -2,8 +2,8 @@
  * @file error_handling.h
  * @author ZARIKIAN Hayk (haykzrk@gmail.com)
  * @brief Test and error file.
- * @version 0.1
- * @date 2021-08-10
+ * @version 1.0
+ * @date 2021-09-26
  *
  * @copyright Copyright (c) 2021
  *
@@ -101,6 +101,12 @@ void test_sample (ALLEGRO_SAMPLE *sample);
  */
 void test_sample_instance (ALLEGRO_SAMPLE_INSTANCE *sample_instance);
 
-void test_image (ALLEGRO_BITMAP *image);
+/**
+ * @brief Bitmap test.
+ * 
+ * @param[in] image 
+ * @param[in] name
+ */
+void test_image (ALLEGRO_BITMAP *image, char name[]);
 
 #endif

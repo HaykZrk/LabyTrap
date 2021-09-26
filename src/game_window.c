@@ -2,8 +2,8 @@
  * @file game_window.c
  * @author ZARIKIAN Hayk (haykzrk@gmail.com)
  * @brief Game file.
- * @version 0.1
- * @date 2021-08-10
+ * @version 1.0
+ * @date 2021-09-26
  *
  * @copyright Copyright (c) 2021
  *
@@ -22,6 +22,7 @@
  *
  */
 void game_window (void) {
+// INIT AND GLOBALE
     for (int i = 0; i < KEYMAX; i++)
         keyy[i] = false;
     dessine = true;
@@ -61,32 +62,39 @@ void game_window (void) {
     if (!al_init_image_addon ())
         error ("al_init_image_addon()");
 
+    al_install_audio ();
+    al_init_acodec_addon ();
+    test_audio ();
+    test_acodec ();
+// INIT AND GLOBALE (END)
+
+// OBJECTS LOAD
     image_owl_face = al_load_bitmap ("../assets/characters/owl_face.png");
-    test_image (image_owl_face);
+    test_image (image_owl_face, "owl_face.png");
 
     image_owl_go_right_left = al_load_bitmap ("../assets/characters/owl_go_right-left.png");
-    test_image (image_owl_go_right_left);
+    test_image (image_owl_go_right_left, "owl_go_right-left.png");
 
     image_return = al_load_bitmap ("../assets/utility/return.png");
-    test_image (image_return);
+    test_image (image_return, "return.png");
 
     image_return_active = al_load_bitmap ("../assets/utility/return_active.png");
-    test_image (image_return_active);
+    test_image (image_return_active, "return_active.png");
 
     image_flag = al_load_bitmap ("../assets/utility/flag.png");
-    test_image (image_flag);
+    test_image (image_flag, "flag.png");
 
     image_flag_green = al_load_bitmap ("../assets/utility/flag_green.png");
-    test_image (image_flag_green);
+    test_image (image_flag_green, "flag_green.png");
 
     image_bomb = al_load_bitmap ("../assets/utility/bomb.png");
-    test_image (image_bomb);
+    test_image (image_bomb, "bomb.png");
 
     image_explosion = al_load_bitmap ("../assets/utility/explosion.png");
-    test_image (image_explosion);
+    test_image (image_explosion, "explosion.png");
 
     image_level_1_bg = al_load_bitmap ("../assets/utility/LEVEL_1_BACKGROUND.bmp");
-    test_image (image_level_1_bg);
+    test_image (image_level_1_bg, "LEVEL_1_BACKGROUND.bmp");
 
     arial72 = al_load_font ("../assets/fonts/arial.ttf", 72, 0);
     test_font (arial72);
@@ -96,11 +104,6 @@ void game_window (void) {
 
     arial30 = al_load_font ("../assets/fonts/arial.ttf", 30, 0);
     test_font (arial30);
-
-    al_install_audio ();
-    al_init_acodec_addon ();
-    test_audio ();
-    test_acodec ();
 
     al_reserve_samples (10);
     MENU_Song = al_load_sample ("../assets/audio/menu_song.wav");
@@ -130,13 +133,15 @@ void game_window (void) {
     for (int i = 0; i < 8; i++) {
         sprintf (nom, "../assets/characters/z%d.png", i);
         anim[i] = al_load_bitmap (nom);
-        test_image (anim[i]);
+        test_image (anim[i], "nom");
     }
     dir = cmptimage = 0;
     image = 2;
 
     al_start_timer (timer);
+// OBJECTS LOAD (END)
 
+// GAME LAUNCHER
     while (continuer){
         if (!play) {
             al_clear_to_color (WHITE);
@@ -154,6 +159,7 @@ void game_window (void) {
                     oldx = mouse.x;
                     oldy = mouse.y;
                 }
+
                 launch_display ();
                 menu_dynamic ();
 
@@ -165,6 +171,7 @@ void game_window (void) {
                 x++;
                 if (x > 830)
                     x = -30;
+                    
                 al_flip_display ();
             }
         }
@@ -187,4 +194,5 @@ void game_window (void) {
             }
         }
    }
+// GAME LAUNCHER (END)
 }

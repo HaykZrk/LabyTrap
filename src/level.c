@@ -1,10 +1,26 @@
+/**
+ * @file level.c
+ * @author ZARIKIAN Hayk (haykzrk@gmail.com)
+ * @brief Level file.
+ * @version 1.0
+ * @date 2021-09-26
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include "../include/level.h"
 #include "../include/game_window.h"
 #include "../include/event.h"
 #include "../include/keyboard_management.h"
 #include "../include/mouse_management.h"
 
+/**
+ * @brief Level 1.
+ * 
+ */
 void level_1 (void) {
+    // INIT 
     ALLEGRO_EVENT event;
     al_wait_for_event (queue, &event);
 
@@ -71,7 +87,9 @@ void level_1 (void) {
         }
         else
             image_flag_active = 0;
+    // INIT (END)
 
+        // COLLISION
         if (posx > 490 && posx < 570 && posy > 380 && posy < 510) {
             image_bomb_active = 1;
             al_stop_sample_instance (songInstance2);
@@ -85,7 +103,6 @@ void level_1 (void) {
             while (continuer_level)
                 defeat_level ();
         }
-
 
         if ( (posx > 100 && posx < 120 && posy < 230 && posy > 160) ||
              (posx > 160 && posx < 180 && posy < 280 && posy > 120) ||
@@ -120,9 +137,12 @@ void level_1 (void) {
             posy += 0;
         else
             posy -= 10 * keyy[UP];
+        // COLLISION (END)
 
         dessine = true;
     }
+
+    // STUCTURATION (LEVEL DESIGN)
     if (dessine == true && al_is_event_queue_empty (queue)) {
         al_clear_to_color (WHITE);
 
@@ -175,8 +195,13 @@ void level_1 (void) {
         al_flip_display ();
         dessine = false;
     }
+    // STUCTURATION (LEVEL DESIGN) (END)
 }
 
+/**
+ * @brief Function of victory level.
+ * 
+ */
 void victory_level (void) {
     al_clear_to_color (WHITE);
 
@@ -201,6 +226,10 @@ void victory_level (void) {
     }
 }
 
+/**
+ * @brief Function of defeat level.
+ * 
+ */
 void defeat_level (void) {
     al_clear_to_color (WHITE);
 

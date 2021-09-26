@@ -2,8 +2,8 @@
  * @file garbage_collector.h
  * @author ZARIKIAN Hayk (haykzrk@gmail.com)
  * @brief Garbage collector file.
- * @version 0.1
- * @date 2021-08-10
+ * @version 1.0
+ * @date 2021-09-26
  * 
  * @copyright Copyright (c) 2021
  * 

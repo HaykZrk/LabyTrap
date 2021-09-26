@@ -2,8 +2,8 @@
  * @file event.h
  * @author ZARIKIAN Hayk (haykzrk@gmail.com)
  * @brief Event file.
- * @version 0.1
- * @date 2021-08-19
+ * @version 1.0
+ * @date 2021-09-26
  * 
  * @copyright Copyright (c) 2021
  * 
