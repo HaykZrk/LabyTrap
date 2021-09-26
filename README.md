@@ -2,6 +2,10 @@
 #
         HOW THE GAME WORKS
 
+WARNING : 
+- Please change the path of include (library) and the path for the files of game in the Makefile.
+  Otherwise the Makefile will not work because the path is incorrect.
+
 COMMAND MAKEFILE :
 - make game : compile game.
 - make dist : create archive.
@@ -26,8 +30,11 @@ Versioning in my git repository goes like this :
 - In the branch : files
         -> The files of the allegro 5 library and subject.
 
+- In the tags : v1.0
+        -> Optimization code.
+
 - In the tags : v0.9
-        -> 
+        -> Programming Makefile.
 
 - In the tags : v0.8
         -> Programming of traps and add decoration.
