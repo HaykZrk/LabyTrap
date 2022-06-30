@@ -151,7 +151,6 @@ void level_1 (void) {
         al_draw_line (0, 90, 800, 90, BLACK, 3);
 
         al_draw_tinted_bitmap (image_level_1_bg, al_map_rgb(120, 120, 120), 0, 90, 0);
-        al_draw_textf (arial15, BLACK, 450, 200, ALLEGRO_ALIGN_LEFT, "THE PROBLEME IS NOT THE PROBLEM");
 
         al_draw_line (50, 150, 750, 150, BLACK, 5);
         al_draw_line (50, 147, 50, 200, BLACK, 5);

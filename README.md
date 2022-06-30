@@ -1,26 +1,20 @@
-    GENERAL INFORMATION
-#
-        HOW THE GAME WORKS
+# LABY TRAP PROJECT
 
-WARNING : 
-- Please change the path of include (library) and the path for the files of game in the Makefile.
-  Otherwise the Makefile will not work because the path is incorrect.
+## Description 
+LabyTrap is a game developed in language 'C' via the "allegro 5" library which consists of getting out of 
+the labyrinth by avoiding the traps.
 
-COMMAND MAKEFILE :
-- make game : compile game.
-- make dist : create archive.
-- make docs : create documentation (doxygen).
-- make clean : delete binary and obj files, archive, documentation.
+## Presentation
+#### Picture 1 : Menu of game
+![Menu!](Screenshot/Menu.PNG)
+#### Picture 2 : Level Menu
+![LevelMenu!](Screenshot/LevelMenu.PNG)
+#### Picture 3 : Level 1
+![Level1!](Screenshot/Level1.PNG)
+#### Picture 4 : Level 1 (2)
+![Level1(2)!](Screenshot/Level1(2).PNG)
 
-COMMAND GAME : 
-- Key UP : UP
-- Key DOWN : DOWN
-- Key LEFT : LEFT 
-- Key RIGHT : RIGHT
-- Key SPACE ON FLAG : VICTORY   
-
-#
-      VERSI0NING
+## VERSI0NING
 
 Versioning in my git repository goes like this : 
 
@@ -61,10 +55,9 @@ Versioning in my git repository goes like this :
 - In the tags : v0.1
         -> Game window preparation ready.
 
-#
-      USE OF THE ALLEGRO 5 LIBRARY
+## USE OF THE ALLEGRO 5 LIBRARY
 
-        INSTALLATION
+### INSTALLATION
 
 - For CodeBlocks : 
         https://www.allegro.cc/files/ ->
@@ -77,7 +70,7 @@ Versioning in my git repository goes like this :
 - Easy installation : 
         Allegro 5 available in the "files" branch for CodeBlock and Visual Studio.
 
-        POSITIONING OF DLL
+### POSITIONING OF DLL
 
 - Solution 1 : 
         Copy the DLL to the executable directory.
@@ -89,7 +82,7 @@ Versioning in my git repository goes like this :
 - Solution 3 : 
         Use a static library.
 
-        CONFIGURATION
+### CONFIGURATION
 
 - For CodeBlocks : 
 
