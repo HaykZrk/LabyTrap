@@ -5,6 +5,15 @@ LabyTrap is a game developed in language 'C' via the "allegro 5" library which c
 the labyrinth by avoiding the traps.
 
 ## Presentation
+
+### Command game
+- Key UP : UP
+- Key DOWN : DOWN
+- Key LEFT : LEFT 
+- Key RIGHT : RIGHT
+- Key SPACE ON FLAG : VICTORY   
+
+### Pictures
 #### Picture 1 : Menu of game
 ![Menu!](Screenshot/Menu.PNG)
 #### Picture 2 : Level Menu
